@@ -48,6 +48,8 @@ PackOS reads artwork, the file decides the white; do not change it.
 - **Varnishes** (`gloss-varnish`, `matte-varnish`) are a coating rather than a film: a lighter-duty finish for
   products that stay dry and are not handled much.
 - **Uncoated paper** has a natural, writable paper look. Not for anything wet, oily, chilled or frozen.
+- Never say one option costs more or less than another ("varnish is cheaper"): you don't know PackOS's
+  prices until it quotes. If price decides it, quote both and compare PackOS's numbers.
 - "Gloss" or "matte" alone is ambiguous: ask laminate or varnish. If they don't know, a laminate is the safe
   recommendation for anything that gets wet, cold or handled.
 

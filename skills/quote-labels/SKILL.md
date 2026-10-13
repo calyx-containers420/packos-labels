@@ -107,7 +107,8 @@ PackOS's assumptions, clearly listed, beats a questionnaire.
 4c. **Comparing options** ("gloss or matte?", "white or clear?"): one quote per option PackOS can price, then
    PackOS's numbers side by side in a short table with a one-line take on each trade-off (from the label guide).
    Point at the numbers; never compute the difference.
-5. **Offer to show it in 3D** once it is quoted (`packos_view_label_3d` with the quote id, or the analysis id for
+5. **Offer to show it in 3D** — and when the person named their container ("a 750 ml bottle", "12 oz cans",
+   "a jar"), offer it on that container by name, in the same reply as the quote. Once it is quoted (`packos_view_label_3d` with the quote id, or the analysis id for
    artwork): PackOS draws the label on its roll, and the person can switch to flat, bottle, jar or can and turn it.
    Say what is shown (artwork, or stock and finish only for a label quoted from words); never describe colours or
    finishes the card has not been given.

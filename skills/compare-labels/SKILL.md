@@ -1,6 +1,8 @@
 ---
+name: compare-labels
 description: Compare PackOS label options side by side (finishes, materials or quantities)
 argument-hint: "[what to compare, e.g. gloss vs matte laminate on my 4 × 6 label]"
+disable-model-invocation: true
 ---
 
 Compare these label options with PackOS, following the quote-labels skill: $ARGUMENTS
