@@ -100,8 +100,8 @@ full colour here. Pantone/brand colours come from the artwork when PackOS reads 
 
 ## Getting the best price, honestly
 
-- **Price breaks**: the price per label falls with quantity. Show a few breaks in one quote (`quantities`) so the
-  person sees the curve; point at the numbers PackOS returns, never compute savings yourself.
+- **Price tiers**: the price per label falls with quantity. Every quote shows six tiers, and the person can change
+  them in the quote card; point at the numbers PackOS returns, never compute savings yourself.
 - **Several flavours or SKUs** with the same size, material and finish print as one run: quote them together
   (`designs`, or `packos_quote_labels` for different files), never one by one.
 - **A new size** carries a one-time die (tooling) charge; a size PackOS already holds does not. If the person has
