@@ -17,6 +17,7 @@ quote returns, word for word, and show the numbers it returns as they are.
 | `packos_read_label_artwork` | Read the person's label PDF: size, shape, colours, white, effects, what was assumed, the questions to ask, and a picture. Returns an `analysis_id`. |
 | `packos_check_label_spec` | Check a described label before quoting: what PackOS still needs, what it assumed, what is not offered. |
 | `packos_quote_label` | The official quote — from `spec` (a described label) **or** `analysis_id` (a label read from its artwork), never both. |
+| `packos_quote_labels` | Several labels on one order (flavours, SKUs, sizes): PackOS groups the ones that print together and returns each run's quote and the order total. |
 | `packos_get_quote` | Read a quote back by its id (`pq_…`), including whether it has expired. |
 | `packos_save_quote` | Keep the quote in the person's PackOS account (My quotes on packos.ai). Needs sign-in. |
 | `packos_start_order` | The link where the person orders on packos.ai. Needs sign-in. |
@@ -58,11 +59,11 @@ quote returns, word for word, and show the numbers it returns as they are.
 4. **Repeat the summary exactly.** It states the unit price, the total, tooling, lead time, the price breaks
    asked for, and that prices are ex-works with freight and tax not included. The total is the price; the unit
    price is rounded to four places, so never multiply it back out or "correct" a total.
-4b. **Several labels (multi-SKU).** Flavours or SKUs on the same size, material and finish are ONE quote: `designs`
-   = how many artworks and `quantity` = the TOTAL across them (3 flavours × 10,000 = `designs: 3`, `quantity:
-   30,000`). They print as one run; quoting them one by one prices separate runs and costs the person more. A
-   label with a different size, material or finish is its own quote. Show each quote's summary; if you give an
-   order total, say it is the sum of the quotes' totals.
+4b. **Several labels (multi-SKU): one `packos_quote_labels` call**, a line per artwork with its own quantity
+   (2–12 lines). PackOS groups the lines that print together (same size, material and finish) into one run, the
+   way packos.ai prices a basket: never quote flavours one by one (separate runs cost more, and a flavour under
+   10,000 would be refused on its own when it is fine with its siblings). Repeat the summary it returns; it
+   already carries the order total.
 5. **Give the "Open in PackOS" link exactly as returned**, as a link (e.g. `[Open in PackOS](…)`). Never shorten,
    rewrite or summarise it: one changed character breaks it.
 
