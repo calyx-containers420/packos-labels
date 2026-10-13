@@ -19,6 +19,7 @@ quote returns, word for word, and show the numbers it returns as they are.
 | `packos_check_label_spec` | Check a described label before quoting: what PackOS still needs, what it assumed, what is not offered. |
 | `packos_quote_label` | The official quote — from `spec` (a described label) **or** `analysis_id` (a label read from its artwork), never both. |
 | `packos_quote_labels` | Several labels on one order (flavours, SKUs, sizes): PackOS groups the ones that print together and returns each run's quote and the order total. |
+| `packos_view_label_3d` | Show a quoted label in 3D (on its roll, flat, or on a bottle, jar or can), from a quote id or an artwork analysis id. |
 | `packos_get_quote` | Read a quote back by its id (`pq_…`), including whether it has expired. |
 | `packos_save_quote` | Keep the quote in the person's PackOS account (My quotes on packos.ai). Needs sign-in. |
 | `packos_start_order` | The link where the person orders on packos.ai. Needs sign-in. |
@@ -78,7 +79,11 @@ quote returns, word for word, and show the numbers it returns as they are.
    way packos.ai prices a basket: never quote flavours one by one (separate runs cost more, and a flavour under
    10,000 would be refused on its own when it is fine with its siblings). Repeat the summary it returns; it
    already carries the order total.
-5. **Give the "Open in PackOS" link exactly as returned**, as a link (e.g. `[Open in PackOS](…)`). Never shorten,
+5. **Offer to show it in 3D** once it is quoted (`packos_view_label_3d` with the quote id, or the analysis id for
+   artwork): PackOS draws the label on its roll, and the person can switch to flat, bottle, jar or can and turn it.
+   Say what is shown (artwork, or stock and finish only for a label quoted from words); never describe colours or
+   finishes the card has not been given.
+6. **Give the "Open in PackOS" link exactly as returned**, as a link (e.g. `[Open in PackOS](…)`). Never shorten,
    rewrite or summarise it: one changed character breaks it.
 
 **Numbers:** you may point at numbers PackOS returned ("the 50,000 break has the lowest price per label"). Never
