@@ -30,14 +30,17 @@ quote returns, word for word, and show the numbers it returns as they are.
 1. **If the person has the artwork, read it first** (`packos_read_label_artwork`). The file decides the size,
    the shape, the colours, the white and the effects; quoting from the file is more accurate than any
    description of it. Show the picture and say what was read.
-   - **Getting the file to PackOS.** Never paste a PDF as base64: a label file is megabytes. Call
-     `packos_get_artwork_upload_link` (with the file name), then:
+   - **Getting the file to PackOS.** As soon as the person mentions their artwork, call
+     `packos_get_artwork_upload_link`; do not ask them to attach it to the chat first: a file attached to the
+     conversation never reaches a tool. Never paste a PDF as base64: a label file is megabytes. Then:
      - if you can run shell commands and the file is in your workspace (Cowork, Claude Code), run the `curl`
        command it returns, with the file's real path;
-     - otherwise, or if that command cannot reach packos.ai, give the person the page link exactly as returned and
-       wait until they say the file is uploaded.
-     Then call `packos_read_label_artwork` with `file: { upload_id }`. If it says the file has not arrived, ask the
-     person to finish the upload; never invent a link or read the file yourself instead.
+     - otherwise, or if that command cannot reach packos.ai, give the person the page link exactly as returned (the
+       card shows it as a button, with "It's uploaded" for when they are done) and end your turn until they say the
+       file is uploaded.
+     Then call `packos_read_label_artwork` with `file: { upload_id }` (it waits a few seconds for a file still on
+     its way). If it says the file has not arrived, tell the person once and end your turn; do not call it again
+     until they say it is uploaded. Never invent a link or read the file yourself instead.
    - Do not quote from your own reading of the artwork, even when you can open it: only PackOS's read sees the
      plates, the white and the effects the press prints. Do not state a size, colours or anything else about the
      file before PackOS has read it; say only that you are sending it to PackOS.
