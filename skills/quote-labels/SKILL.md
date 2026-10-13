@@ -14,6 +14,7 @@ quote returns, word for word, and show the numbers it returns as they are.
 | Tool | Use it to |
 |---|---|
 | `packos_get_quoting_rules` | Learn what is quoted online: sizes, materials, finishes, effects, quantity rules, lead time, terms. Call it first if unsure. |
+| `packos_get_artwork_upload_link` | A one-file link to send the person's label PDF to PackOS (you cannot attach a file to a tool call). |
 | `packos_read_label_artwork` | Read the person's label PDF: size, shape, colours, white, effects, what was assumed, the questions to ask, and a picture. Returns an `analysis_id`. |
 | `packos_check_label_spec` | Check a described label before quoting: what PackOS still needs, what it assumed, what is not offered. |
 | `packos_quote_label` | The official quote — from `spec` (a described label) **or** `analysis_id` (a label read from its artwork), never both. |
@@ -28,6 +29,16 @@ quote returns, word for word, and show the numbers it returns as they are.
 1. **If the person has the artwork, read it first** (`packos_read_label_artwork`). The file decides the size,
    the shape, the colours, the white and the effects; quoting from the file is more accurate than any
    description of it. Show the picture and say what was read.
+   - **Getting the file to PackOS.** Never paste a PDF as base64: a label file is megabytes. Call
+     `packos_get_artwork_upload_link` (with the file name), then:
+     - if you can run shell commands and the file is in your workspace (Cowork, Claude Code), run the `curl`
+       command it returns, with the file's real path;
+     - otherwise, or if that command cannot reach packos.ai, give the person the page link exactly as returned and
+       wait until they say the file is uploaded.
+     Then call `packos_read_label_artwork` with `file: { upload_id }`. If it says the file has not arrived, ask the
+     person to finish the upload; never invent a link or read the file yourself instead.
+   - Do not quote from your own reading of the artwork, even when you can open it: only PackOS's read sees the
+     plates, the white and the effects the press prints.
 2. **Ask only what PackOS asks.** `packos_quote_label` returns its own questions ("Ask the person: …"), so a
    separate `packos_check_label_spec` is optional. Ask those questions in plain words and offer the options they
    list. Do not guess an answer and do not fill a field the person did not state; leave it out and PackOS asks.
