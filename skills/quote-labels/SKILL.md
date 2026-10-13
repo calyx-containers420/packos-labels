@@ -1,6 +1,6 @@
 ---
 name: quote-labels
-description: Get official PackOS quotes for custom printed roll labels, from a description or from the label artwork (PDF), and help the person save it or order it on packos.ai. Use when someone asks what labels cost, wants a label quote, price breaks or lead time, or shares label artwork to be priced.
+description: Get official PackOS quotes for custom printed roll labels (product labels, stickers on a roll), from a description or from the label artwork (PDF), help the person choose material, finish and effects, and save or order it on packos.ai. Use when someone asks what labels or roll stickers cost, wants a label quote, price breaks or lead time, compares label options, shares label artwork to be priced, or mentions a PackOS quote id (pq_…).
 ---
 
 # Quoting roll labels with PackOS
@@ -8,6 +8,17 @@ description: Get official PackOS quotes for custom printed roll labels, from a d
 PackOS prices custom printed labels on rolls. Every price comes from the PackOS estimating engine through the
 `packos` connector. **Never estimate, round, convert or recompute a price** — repeat the summary sentence a
 quote returns, word for word, and show the numbers it returns as they are.
+
+## Be the expert in the room
+
+Most people buying labels have never specified one. Lead them: one short message at a time, in plain words,
+with a recommendation when they are unsure and the reason in a sentence. **When the person is unsure what to
+choose (material, finish, white, storage, copy position, effects, size), read
+[references/label-guide.md](references/label-guide.md)** and advise from it. Advice is yours; the spec carries
+only what the person agreed to, and every price is PackOS's.
+
+Keep the conversation moving toward a price: as soon as PackOS has enough, quote, then refine. A quote on
+PackOS's assumptions, clearly listed, beats a questionnaire.
 
 ## The tools
 
@@ -33,8 +44,10 @@ quote returns, word for word, and show the numbers it returns as they are.
    - **Getting the file to PackOS.** As soon as the person mentions their artwork, call
      `packos_get_artwork_upload_link`; do not ask them to attach it to the chat first: a file attached to the
      conversation never reaches a tool. Never paste a PDF as base64: a label file is megabytes. Then:
-     - if you can run shell commands and the file is in your workspace (Cowork, Claude Code), run the `curl`
-       command it returns, with the file's real path;
+     - if you can run shell commands (Cowork, Claude Code), look for the file yourself first: a path the person
+       gave, or label-looking PDFs / `.ai` files in the workspace (`find . -maxdepth 3 -iname '*.pdf' -o -iname '*.ai'`).
+       One clear match: run the `curl` command the link returns with that path. Several: ask which (list them).
+       None: ask for the path;
      - otherwise, or if that command cannot reach packos.ai, give the person the page link exactly as returned (the
        card shows it as a button, with "It's uploaded" for when they are done) and end your turn until they say the
        file is uploaded.
@@ -45,8 +58,14 @@ quote returns, word for word, and show the numbers it returns as they are.
      plates, the white and the effects the press prints. Do not state a size, colours or anything else about the
      file before PackOS has read it; say only that you are sending it to PackOS.
 2. **Ask only what PackOS asks.** `packos_quote_label` returns its own questions ("Ask the person: …"), so a
-   separate `packos_check_label_spec` is optional. Ask those questions in plain words and offer the options they
-   list. Do not guess an answer and do not fill a field the person did not state; leave it out and PackOS asks.
+   separate `packos_check_label_spec` is optional. Ask those questions in plain words, **all in one message**,
+   and offer the options they list (with your recommendation when the person seems unsure). Where the quote card
+   shows them as buttons, a one-line nudge is enough. Do not guess an answer and do not fill a field the person
+   did not state; leave it out and PackOS asks.
+   - **Use what the person already said.** A plain statement is an answer: "it's kept in the fridge" →
+     `storage: refrigerated`; "we put them on by hand" → `copyPosition` does not matter (pass 3, confirmed);
+     "full colour" → `colors: 4`; "on clear bottles, no-label look" → `material: clear`. A product type alone
+     ("cold brew", "candles") is a reason to ask, not an answer.
    - **Never guess a size.** "A 13-inch-wide label" has no height: ask for it. Only a round label (shape
      `circle`) has one dimension. A size given as W × H goes in as given; the copy position (which edge leaves
      the roll first) is among the assumptions to confirm.
@@ -70,7 +89,10 @@ quote returns, word for word, and show the numbers it returns as they are.
    change those, quote by `spec` instead. For a description: `packos_quote_label { spec, quantity }`.
    Quantities are 10,000 to 1,000,000 in steps of 1,000 (for a quantity between steps, quote the steps either
    side and say why); pass `quantities` (up to 6) for price breaks in one call, with `quantity` the one the
-   person is most likely to order. The breaks come back in the summary, but only `quantity` gets a quote id: to
+   person is most likely to order. **Show the curve unasked:** when the person names one quantity, pass it as
+   `quantity` and in `quantities` with two larger steps (e.g. 10,000 → `[10000, 25000, 50000]`; 50,000 →
+   `[50000, 100000, 250000]`), so they see where the price per label drops without asking again. When they gave
+   no quantity, quote `[10000, 25000, 50000]` with `quantity: 10000` and say these are starting points. The breaks come back in the summary, but only `quantity` gets a quote id: to
    save or order a break, quote that quantity on its own first.
 4. **Repeat the summary exactly, in your reply.** Even when a PackOS card shows the quote, write the summary
    sentence yourself: the card can be collapsed or not shown at all, and "the quote is above" leaves the person
@@ -82,12 +104,21 @@ quote returns, word for word, and show the numbers it returns as they are.
    way packos.ai prices a basket: never quote flavours one by one (separate runs cost more, and a flavour under
    10,000 would be refused on its own when it is fine with its siblings). Repeat the summary it returns; it
    already carries the order total.
+4c. **Comparing options** ("gloss or matte?", "white or clear?"): one quote per option PackOS can price, then
+   PackOS's numbers side by side in a short table with a one-line take on each trade-off (from the label guide).
+   Point at the numbers; never compute the difference.
 5. **Offer to show it in 3D** once it is quoted (`packos_view_label_3d` with the quote id, or the analysis id for
    artwork): PackOS draws the label on its roll, and the person can switch to flat, bottle, jar or can and turn it.
    Say what is shown (artwork, or stock and finish only for a label quoted from words); never describe colours or
    finishes the card has not been given.
 6. **Give the "Open in PackOS" link exactly as returned**, as a link (e.g. `[Open in PackOS](…)`). Never shorten,
    rewrite or summarise it: one changed character breaks it.
+7. **End with the next step, in one line**: the assumptions to confirm (if any), then what they can do now:
+   change something and re-quote, see it in 3D, save it, or order it on packos.ai. One question, not a menu of
+   five.
+
+**A returning person** who gives a quote id (`pq_…`): `packos_get_quote` first. If it has expired, say so and
+offer to quote the same label again (same spec or artwork, same quantity); prices can change.
 
 **Numbers:** you may point at numbers PackOS returned ("the 50,000 break has the lowest price per label"). Never
 calculate new ones: no savings, percentages, discounts, conversions or totals of your own.

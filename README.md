@@ -10,7 +10,14 @@ the quote to your PackOS account, start an order on packos.ai, or hand a label t
 
 - **The `packos` connector** — PackOS's remote MCP server at `https://mcp.packos.ai/mcp` (streamable HTTP).
 - **The `quote-labels` skill** — how to use the connector well: read artwork first, ask only what PackOS asks,
-  never recompute a price, and how to handle a label PackOS will not price online.
+  never recompute a price, and how to handle a label PackOS will not price online. It carries a label-buying
+  guide (material, finish, white ink, storage, copy position, effects) so Claude can advise someone who has never
+  specified a label, within the options PackOS really offers.
+- **Commands** (Claude Code): `/packos-labels:quote`, `/packos-labels:quote-artwork` (finds the PDF in your
+  workspace and uploads it) and `/packos-labels:compare`.
+
+The connector also offers ready-made starters wherever MCP prompts show (the "+" menu in claude.ai, `/mcp__packos__…`
+in Claude Code): Quote a label, Quote my label artwork, Compare price breaks, Quote several labels, Check a PackOS quote.
 
 ## What it sends, and to whom
 
