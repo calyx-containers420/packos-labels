@@ -1,0 +1,11 @@
+PackOS Labels plugin
+Copyright 2026 Calyx Containers
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+"PackOS" and the PackOS logo are trademarks of Calyx Containers. As section 6 of the
+License says, the License does not grant permission to use them, except as required
+for describing the origin of the plugin.
+
+This repository holds only the plugin: a skill and the address of PackOS's connector.
+The PackOS service it connects to is not part of it and is not licensed by it.
