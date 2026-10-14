@@ -48,9 +48,14 @@ PackOS's assumptions, clearly listed, beats a questionnaire.
        gave, or label-looking PDFs / `.ai` files in the workspace (`find . -maxdepth 3 -iname '*.pdf' -o -iname '*.ai'`).
        One clear match: run the `curl` command the link returns with that path. Several: ask which (list them).
        None: ask for the path;
-     - otherwise, or if that command cannot reach packos.ai, give the person the page link exactly as returned (the
-       card shows it as a button, with "It's uploaded" for when they are done) and end your turn until they say the
-       file is uploaded.
+     - otherwise, the card takes the file itself: the person drops or chooses it **on the card**, PackOS reads it
+       there, and their next message says so with the analysis id ("I sent … in the card, and PackOS read it
+       (analysis an_…)"). That read stands: quote from that `analysis_id`, and don't call
+       `packos_read_label_artwork` again. Say in one line that they can drop the file on the card, and end your turn.
+       Don't paste the upload page link unless the card is not showing or the person asks for it (it's on the card
+       as "Use the upload page instead");
+     - the card may also have priced it already ("I got a price for my label in the card … quote pq_…"): that quote
+       stands too; relay it rather than quoting again.
      Then call `packos_read_label_artwork` with `file: { upload_id }` (it waits a few seconds for a file still on
      its way). If it says the file has not arrived, tell the person once and end your turn; do not call it again
      until they say it is uploaded. Never invent a link or read the file yourself instead.
