@@ -113,6 +113,17 @@ PackOS's assumptions, clearly listed, beats a questionnaire.
    way packos.ai prices a basket: never quote flavours one by one (separate runs cost more, and a flavour under
    10,000 would be refused on its own when it is fine with its siblings). Repeat the summary it returns; it
    already carries the order total.
+   - **Several artwork files**: one upload link is enough — the person drops all their PDFs on the card at once;
+     the card reads each, lets them type each file's quantity and prices them together. Their next message lists
+     the files with their analysis ids ("I sent 3 label files… agave label (analysis an_…)"), or says the card
+     priced them ("I priced my 3 files together… quote pq_…"). Those reads and quotes stand. To quote files
+     yourself, one `packos_quote_labels` with a line per file: `{ analysis_id, quantity, name }` (`design` for a
+     file with several designs, `confirmations` for that file's answers). Ask each file's quantity if the person
+     did not say; never assume they are all the same.
+   - **Custom quantities**: any whole number per line; a *run* (the lines that print together) must be 10,000 to
+     1,000,000 in steps of 1,000. The order card has "Change quantities" for every line, and its "Open the whole
+     order in PackOS" link opens every file as one basket at its quantity — give that link for an order of
+     several runs.
 4c. **Comparing options** ("gloss or matte?", "white or clear?"): one quote per option PackOS can price, then
    PackOS's numbers side by side in a short table with a one-line take on each trade-off (from the label guide).
    Point at the numbers; never compute the difference.
@@ -134,6 +145,17 @@ offer to quote the same label again (same spec or artwork, same quantity); price
 
 **Numbers:** you may point at numbers PackOS returned ("the 50,000 break has the lowest price per label"). Never
 calculate new ones: no savings, percentages, discounts, conversions or totals of your own.
+
+## Completing the request (RFQ)
+
+An RFQ is complete when the person has, for every label they asked about, either a price they can order from
+or a clear by-hand path:
+- **Priced**: give the summary, confirm what PackOS assumed, and the "Open in PackOS" link (the whole-order link
+  for several runs). On packos.ai they check it, add shipping, and order — or "Email me the full quote".
+- **Priced by hand** (foil, oversize, a by-hand effect): offer the change that gets an online price (the card's
+  "Price it without the …" button does it in one tap), or `packos_request_specialist` with their note (needs
+  sign-in), or the "Open in PackOS" link, whose "send it over" request reaches a specialist from the card.
+- End by listing what is priced and what is with a specialist, in one short list, so nothing is left hanging.
 
 ## When PackOS will not price it online
 
