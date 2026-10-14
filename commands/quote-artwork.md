@@ -1,8 +1,6 @@
 ---
-name: quote-artwork
 description: Send label artwork (PDF) to PackOS, have it read the way the press prints it, and quote it
 argument-hint: "[path to the PDF] [quantity]"
-disable-model-invocation: true
 ---
 
 Quote my label artwork with PackOS, following the quote-labels skill. $ARGUMENTS
