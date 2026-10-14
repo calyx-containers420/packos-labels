@@ -123,7 +123,9 @@ PackOS's assumptions, clearly listed, beats a questionnaire.
    - **Custom quantities**: any whole number per line; a *run* (the lines that print together) must be 10,000 to
      1,000,000 in steps of 1,000. The order card has "Change quantities" for every line, and its "Open the whole
      order in PackOS" link opens every file as one basket at its quantity — give that link for an order of
-     several runs.
+     several runs. After a change in the card, the person's next message carries PackOS's new prices, quote ids
+     and the whole-order link ("I changed the quantities in the order card. PackOS priced the order at …"): that is
+     PackOS's answer. Relay it with the link; don't fetch those quotes again.
 4c. **Comparing options** ("gloss or matte?", "white or clear?"): one quote per option PackOS can price, then
    PackOS's numbers side by side in a short table with a one-line take on each trade-off (from the label guide).
    Point at the numbers; never compute the difference.
