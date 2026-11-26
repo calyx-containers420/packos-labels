@@ -31,7 +31,7 @@ email with PackOS Sales so they can reply. The plugin runs nothing on your compu
 
 ## Vault access
 
-On a gateway with Vault reads enabled, ask “Which proofs are waiting on me?” or “Which revision is current for this SKU?” Sign in with Vault read permission and select your company. Folder guests can open their shared folders and files.
+On a gateway with Vault reads enabled, ask “Which proofs are waiting on me?” or “Which revision is current for this SKU?” Sign in with Vault read permission and select your company. Folder guests can open their shared folders and files. Ask “What changed in the launch folder?” or “Which fields still need review on this SKU?” With folder writes enabled, authorized team members can also create and rename folders.
 
 ## Install
 
