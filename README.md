@@ -54,3 +54,7 @@ places an order or takes payment: orders are checked and paid for by you on pack
 The plugin's files are licensed under the Apache License 2.0 (see `LICENSE`). "PackOS" and its logo are
 trademarks of Calyx Containers and are not licensed (see `NOTICE`). The PackOS service the connector reaches
 is not part of this repository.
+
+## Manufacturer setup
+
+Ask “Connect our LabelTraxx shop and test a quote through to a ticket.” The manufacturer skill uses the enabled PackOS gateway, the plant’s own pricing and its private PackOS review page. In Claude Code use `/packos-labels:manufacturer-setup`.
