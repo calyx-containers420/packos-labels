@@ -58,3 +58,5 @@ places an order or takes payment: orders are checked and paid for by you on pack
 The plugin's files are licensed under the Apache License 2.0 (see `LICENSE`). "PackOS" and its logo are
 trademarks of Calyx Containers and are not licensed (see `NOTICE`). The PackOS service the connector reaches
 is not part of this repository.
+
+The Vault connector can also save a new PDF or PDF-compatible Illustrator revision, file the artwork in a customer folder and request a review from a named workspace member. The read-vault skill uses a single-file upload link and reports the saved version and review recipient.
