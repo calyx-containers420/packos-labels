@@ -29,6 +29,10 @@ is kept as an upload in PackOS so the quote can be reopened with its file. Savin
 and asking a specialist require signing in to PackOS (OAuth); the specialist hand-off shares your account's
 email with PackOS Sales so they can reply. The plugin runs nothing on your computer.
 
+## Vault access
+
+On a gateway with Vault reads enabled, ask “Which proofs are waiting on me?” or “Which revision is current for this SKU?” Sign in with Vault read permission and select your company. Folder guests can open their shared folders and files.
+
 ## Install
 
 From the Claude plugin directory, or in Claude Code from this folder:

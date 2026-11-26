@@ -1,8 +1,8 @@
 {
   "name": "packos-labels",
   "displayName": "PackOS Labels",
-  "version": "0.3.7",
-  "description": "Official quotes for custom printed roll labels from PackOS: from a description or the label artwork, with expert help choosing material and finish, price breaks, tooling and lead time, 3D previews, and a link to order on packos.ai.",
+  "version": "0.4.0",
+  "description": "Official quotes for custom printed roll labels from PackOS: from a description or the label artwork, with expert help choosing material and finish, price breaks, tooling and lead time, 3D previews, and a link to order on packos.ai. When enabled, look up your Vault records, approvals and order status.",
   "author": {
     "name": "Calyx Containers",
     "url": "https://packos.ai"
