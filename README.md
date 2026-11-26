@@ -29,6 +29,12 @@ is kept as an upload in PackOS so the quote can be reopened with its file. Savin
 and asking a specialist require signing in to PackOS (OAuth); the specialist hand-off shares your account's
 email with PackOS Sales so they can reply. The plugin runs nothing on your computer.
 
+## Vault access
+
+On a gateway with Vault reads enabled, ask “Which proofs are waiting on me?” or “Which revision is current for this SKU?” Sign in with Vault read permission and select your company. Folder guests can open their shared folders and files. Ask “What changed in the launch folder?” or “Which fields still need review on this SKU?” With folder writes enabled, authorized team members can also create and rename folders.
+
+The Vault connector can also save a new PDF or PDF-compatible Illustrator revision, file the artwork in a customer folder and request a review from a named workspace member. The read-vault skill uses a single-file upload link and reports the saved version and review recipient.
+
 ## Install
 
 From the Claude plugin directory, or in Claude Code from this folder:
