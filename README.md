@@ -58,3 +58,5 @@ is not part of this repository.
 ## Manufacturer setup
 
 Ask “Connect our LabelTraxx shop and test a quote through to a ticket.” The manufacturer skill uses the enabled PackOS gateway, the plant’s own pricing and its private PackOS review page. In Claude Code use `/packos-labels:manufacturer-setup`.
+
+Manufacturer setup includes the first estimating sync. Confirm the shop in Connections, ask Claude to start the sync, and follow its receipt before pricing the first test ticket.
