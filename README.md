@@ -33,6 +33,8 @@ email with PackOS Sales so they can reply. The plugin runs nothing on your compu
 
 On a gateway with Vault reads enabled, ask “Which proofs are waiting on me?” or “Which revision is current for this SKU?” Sign in with Vault read permission and select your company. Folder guests can open their shared folders and files. Ask “What changed in the launch folder?” or “Which fields still need review on this SKU?” With folder writes enabled, authorized team members can also create and rename folders.
 
+The Vault connector can also save a new PDF or PDF-compatible Illustrator revision, file the artwork in a customer folder and request a review from a named workspace member. The read-vault skill uses a single-file upload link and reports the saved version and review recipient.
+
 ## Install
 
 From the Claude plugin directory, or in Claude Code from this folder:
@@ -58,5 +60,3 @@ places an order or takes payment: orders are checked and paid for by you on pack
 The plugin's files are licensed under the Apache License 2.0 (see `LICENSE`). "PackOS" and its logo are
 trademarks of Calyx Containers and are not licensed (see `NOTICE`). The PackOS service the connector reaches
 is not part of this repository.
-
-The Vault connector can also save a new PDF or PDF-compatible Illustrator revision, file the artwork in a customer folder and request a review from a named workspace member. The read-vault skill uses a single-file upload link and reports the saved version and review recipient.
