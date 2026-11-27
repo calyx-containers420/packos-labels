@@ -60,3 +60,7 @@ is not part of this repository.
 Ask “Connect our LabelTraxx shop and test a quote through to a ticket.” The manufacturer skill uses the enabled PackOS gateway, the plant’s own pricing and its private PackOS review page. In Claude Code use `/packos-labels:manufacturer-setup`.
 
 Manufacturer setup includes the first estimating sync. Confirm the shop in Connections, ask Claude to start the sync, and follow its receipt before pricing the first test ticket.
+
+## IT setup
+
+Ask “Register our ERP and EDI systems and verify a test artwork import.” In Claude Code use `/packos-labels:integration-setup`. The directory review can register several read-only shadow identities in the signed-in workspace. The artwork workflow follows one selected file into Vault. Both require their tools on the connected gateway. Manufacturer setup can also resume from the shop's current sync and pricing state.
