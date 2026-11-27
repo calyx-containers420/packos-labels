@@ -68,3 +68,5 @@ Ask “Register our ERP and EDI systems and verify a test artwork import.” In 
 For recurring artwork, ask “Connect our artwork folder and verify the next revision.” Claude can use Connected folders in the signed-in Vault, reuse an existing watch and read the file’s saved version. Availability and provider consent are shown in the workspace. If you return later, supply the folder report ID and generation to resume the same check.
 
 For an ERP sample, ask “Compare these customer numbers and SKUs with our manufacturer mappings.” The integration skill can prepare the identifier columns locally from a CSV. On a gateway that offers mapping previews, it reports exact matches and which source records need review.
+
+In Claude Code, use `/packos-labels:resume-test-ticket` to follow an already approved manufacturer test. In Claude.ai, ask “What happened to our test ticket?” with its original workspace, company and test reference. The receipt reports the recorded writer state. On an enabled gateway it can briefly follow the same run for a verified external ticket ID.
