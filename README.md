@@ -64,3 +64,5 @@ Manufacturer setup includes the first estimating sync. Confirm the shop in Conne
 ## IT setup
 
 Ask “Register our ERP and EDI systems and verify a test artwork import.” In Claude Code use `/packos-labels:integration-setup`. The directory review can register several read-only shadow identities in the signed-in workspace. The artwork workflow follows one selected file into Vault. Both require their tools on the connected gateway. Manufacturer setup can also resume from the shop's current sync and pricing state.
+
+For recurring artwork, ask “Connect our artwork folder and verify the next revision.” Claude can use Connected folders in the signed-in Vault, reuse an existing watch and read the file’s saved version. Availability and provider consent are shown in the workspace. If you return later, supply the folder report ID and generation to resume the same check.
