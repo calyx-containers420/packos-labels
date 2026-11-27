@@ -1,5 +1,5 @@
 ---
-description: Set up workspace systems and verify a cloud artwork import
+description: Set up workspace systems and verify artwork imports or recurring folders
 disable-model-invocation: true
 ---
 
